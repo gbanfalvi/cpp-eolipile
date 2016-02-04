@@ -6,4 +6,5 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 add_subdirectory(lib-geometry)
 add_subdirectory(lib-geometry-test)
+add_subdirectory(lib-eolipile)
 
