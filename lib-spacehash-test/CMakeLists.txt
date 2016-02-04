@@ -1,0 +1,3 @@
+add_executable(QuadtreeTest SpacehashTest.cpp)
+
+target_link_libraries(QuadtreeTest LINK_PUBLIC Quadtree)
