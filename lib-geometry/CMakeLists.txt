@@ -1,3 +1,3 @@
-add_library(lib-geometry STATIC Point.cpp Point.h Size.cpp Size.h Line.cpp Line.h Rect.cpp Rect.h SpatialHash.cpp SpatialHash.h Geometry.h)
+add_library(lib-geometry STATIC src/Point.cpp src/Point.h src/Size.cpp src/Size.h src/Line.cpp src/Line.h src/Rect.cpp src/Rect.h src/SpatialHash.cpp src/SpatialHash.h src/Geometry.h)
+target_include_directories(lib-geometry PUBLIC src)
 
-target_include_directories(lib-geometry PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

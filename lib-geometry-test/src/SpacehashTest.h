@@ -34,6 +34,4 @@ void checkInstersect(std::string title, bool shouldIntersect, const Rect& rect1,
 }
 
 
-
-
 #endif //EOLIPILE_QUADTREETEST_H
