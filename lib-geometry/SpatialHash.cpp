@@ -1,10 +1,10 @@
 //
-// Created by Gabriel Banfalvi on 01/02/16.
+// Created by Gabriel Banfalvi on 04/02/16.
 //
 
-#include "Spacehash.h"
+#include "SpatialHash.h"
 
-void SpaceHash::add(Positioned *item) {
+void SpatialHash::add(Positioned *item) {
     int minX = item->getLocation().origin.x / _cellSize;
     int maxX = (item->getLocation().origin.x + item->getLocation().size.width) / _cellSize;
 
@@ -14,7 +14,7 @@ void SpaceHash::add(Positioned *item) {
     int diffX = maxX - minX > 0 ? maxX - minX : 1;
     int diffY = maxY - minY > 0 ? maxY - minY : 1;
 
-    std::vector<SpacePoint> points(diffX * diffY);
+    std::vector<Point> points(diffX * diffY);
 
     // Unifinished
 }

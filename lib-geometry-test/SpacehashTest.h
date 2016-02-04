@@ -8,7 +8,7 @@
 #include <iostream>
 #include <string>
 
-#include "Spacehash.h"
+#include "Geometry.h"
 
 bool almostEquals(double a, double b) {
     return fabs(a-b) < 0.001;
@@ -18,7 +18,7 @@ void println(std::string msg) {
     std::cout << msg << std::endl;
 }
 
-void checkInstersect(std::string title, bool shouldIntersect, const SpaceRect& rect1, const SpaceRect& rect2) {
+void checkInstersect(std::string title, bool shouldIntersect, const Rect& rect1, const Rect& rect2) {
 
     SpaceIntersectAndDistance isect = rect1.intersects(rect2);
 
