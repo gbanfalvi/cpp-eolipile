@@ -2,16 +2,13 @@
 #ifndef _INCL_ENGINE_H
 #define _INCL_ENGINE_H
 
-#ifdef MACOSX
-	#import <SDL2/SDL.h>
-	#import <SDL2_image/SDL_image.h>
-#endif
 
 #include <iostream>
 #include <string>
 #include <vector>
 
 #include "EngineWorld.h"
+#include "SDLLibs.h"
 
 /**
  Games are comprised of a single Engine. The engine handles:

@@ -18,9 +18,9 @@ animation cycle at different speeds.
 
 #define _INCL_ENGINE_ITEM_STATE_H
 
-#import <vector>
-#import <string>
-#import "EngineSprite.h"
+#include <vector>
+#include <string>
+#include "EngineSprite.h"
 
 class EngineItemState {
 private:

@@ -2,11 +2,7 @@
 #ifndef _INCL_ENGINE_DIM_H
 #define _INCL_ENGINE_DIM_H
 
-#ifdef MACOSX
-	#import <SDL2/SDL.h>
-	#import <SDL2_image/SDL_image.h>
-
-#endif
+#include "SDLLibs.h"
 
 /**
 	ItemFlip is an attempt at absctracting away the flip from SDL. 

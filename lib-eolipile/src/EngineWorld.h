@@ -11,16 +11,12 @@ get it all working is:
 #ifndef _INCL_ENGINE_MAP_H
 #define _INCL_ENGINE_MAP_H
 
-#import <vector>
-#import <string>
-#import <iostream>
+#include <vector>
+#include <string>
+#include <iostream>
 
-#ifdef MACOSX
-	#import <SDL2/SDL.h>
-	#import <SDL2_image/SDL_image.h>
-#endif
-
-#import "EngineItem.h"
+#include "SDLLibs.h"
+#include "EngineItem.h"
 
 class EngineWorld {
 private: 

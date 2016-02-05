@@ -2,12 +2,7 @@
 
 #ifndef _INCL_ENGINE_INPUT_H
 #define _INCL_ENGINE_INPUT_H
-
-#ifdef MACOSX
-	#import <SDL2/SDL.h>
-	#import <SDL2_image/SDL_image.h>
-#endif
-
+#include "SDLLibs.h"
 #import <iostream>
 
 /**

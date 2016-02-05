@@ -11,12 +11,9 @@ and destroys them when the sprite is deleted.
 #ifndef _INCL_ENGINE_SPRITE_H
 #define _INCL_ENGINE_SPRITE_H
 
-#ifdef MACOSX
-	#import <SDL2/SDL.h>
-	#import <SDL2_image/SDL_image.h>
-#endif
+#include "SDLLibs.h"
+#include <string>
 
-#import <string>
 
 class EngineSprite {
 private:
