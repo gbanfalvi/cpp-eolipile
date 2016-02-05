@@ -1,18 +1,34 @@
-add_library(lib-eolipile STATIC src/Engine.cpp src/Engine.h src/EngineDimension.cpp src/EngineDimension.h src/EngineInputListener.cpp src/EngineInputListener.h src/EngineItem.cpp src/EngineItem.h src/EngineItemState.cpp src/EngineItemState.h src/EngineSprite.cpp src/EngineSprite.h src/EngineWorld.cpp src/EngineWorld.h)
+set( CMAKE_VERBOSE_MAKEFILE on )
+
+add_library(lib-eolipile STATIC
+        src/SDLLibs.h
+        src/Engine.cpp src/Engine.h
+        src/EngineWorld.cpp src/EngineWorld.h
+        src/EngineItem.cpp src/EngineItem.h
+        src/EngineItemState.cpp src/EngineItemState.h
+        src/EngineSprite.cpp src/EngineSprite.h
+        src/EngineDimension.cpp src/EngineDimension.h
+        src/EngineInputListener.cpp src/EngineInputListener.h
+        )
+
 target_include_directories(lib-eolipile PUBLIC src)
 
-set(LINKED_LIBS LINK_PUBLIC lib-geometry)
+IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 
-if(APPLE)
-    include_directories("lib/macos")
+    set(CMAKE_FRAMEWORK_PATH ${CMAKE_CURRENT_LIST_DIR}lib/macos)
 
-    find_library(SDL2_LIBRARY SDL2)
-    find_library(SDL2_IMAGE_LIBRARY SDL2_image)
+    include_directories(
+            lib/macos/SDL2.framework
+            lib/macos/SDL2_image.framework)
 
-    set(EXTRA_LIBS ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARY})
-    set(LINKED_LIBS ${LINKED_LIBS} ${EXTRA_LIBS})
+    find_library(SDL2 NAMES SDL2)
+    find_library(SDL2IMG NAMES SDL2_image)
+
+    target_link_libraries(lib-eolipile lib-geometry)
+    target_link_libraries(lib-eolipile ${SDL2} ${SDL2IMG})
 
     add_definitions(-DMACOSX)
-endif(APPLE)
 
-target_link_libraries(lib-eolipile ${LINKED_LIBS})
+endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+
+
