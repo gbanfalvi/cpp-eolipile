@@ -1,14 +1,18 @@
 //
-// Created by Gabriel Banfalvi on 04/02/16.
+//  Point.hpp
+//  lib-geometry
+//
+//  Created by Gabriel Banfalvi on 09/02/16.
+//
 //
 
-#ifndef EOLIPILE_POINT_H
-#define EOLIPILE_POINT_H
+#ifndef Point_hpp
+#define Point_hpp
 
 struct Point {
     double x = 0;
     double y = 0;
-
+    
     Point(double x, double y):x(x), y(y){};
     Point():x(0), y(0){};
     Point(const Point& point):x(point.x), y(point.y){};
@@ -20,4 +24,4 @@ struct PointCompare {
     }
 };
 
-#endif //EOLIPILE_POINT_H
+#endif /* Point_hpp */

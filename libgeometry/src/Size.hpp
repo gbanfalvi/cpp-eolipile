@@ -1,17 +1,21 @@
 //
-// Created by Gabriel Banfalvi on 04/02/16.
+//  Size.hpp
+//  lib-geometry
+//
+//  Created by Gabriel Banfalvi on 09/02/16.
+//
 //
 
-#ifndef EOLIPILE_SIZE_H
-#define EOLIPILE_SIZE_H
+#ifndef Size_hpp
+#define Size_hpp
 
 struct Size {
     double width = 0;
     double height = 0;
-
+    
     Size(double width, double height):width(width), height(height){};
     Size():width(0), height(0){};
     Size(const Size& size):width(size.width), height(size.height){};
 };
 
-#endif //EOLIPILE_SIZE_H
+#endif /* Size_hpp */

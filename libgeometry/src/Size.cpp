@@ -1,5 +1,9 @@
 //
-// Created by Gabriel Banfalvi on 04/02/16.
+//  Size.cpp
+//  lib-geometry
+//
+//  Created by Gabriel Banfalvi on 09/02/16.
+//
 //
 
-#include "Size.h"
+#include "Size.hpp"

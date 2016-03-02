@@ -1,21 +1,28 @@
 //
-// Created by Gabriel Banfalvi on 04/02/16.
+//  SpatialHash.hpp
+//  lib-geometry
+//
+//  Created by Gabriel Banfalvi on 09/02/16.
+//
 //
 
-#ifndef EOLIPILE_SPATIALHASH_H
-#define EOLIPILE_SPATIALHASH_H
+#ifndef SpatialHash_hpp
+#define SpatialHash_hpp
 
 #include <vector>
 #include <map>
 #include <cmath>
 #include <utility> //pair
 
-#include "Point.h"
-#include "Rect.h"
+#include "Point.hpp"
+
+class Rect;
 
 class Positioned {
 public:
     virtual Rect getLocation() const;
+    virtual bool isIntersectedByOthers() const;
+    virtual bool intersectsOthers() const;
 };
 
 struct SpaceCell {
@@ -26,14 +33,18 @@ class SpatialHash {
 private:
     int _cellSize;
     std::map<Point, SpaceCell, PointCompare> _pointToCell;
+    
+    std::vector<SpaceCell*> matchingCells(Rect location, bool createIfNotExists);
+
 public:
     SpatialHash(int cellSize): _cellSize(cellSize){};
-    ~SpatialHash();
-
+    ~SpatialHash(){};
+    
     void add(Positioned *item);
     void remove(Positioned *item);
     void move(Positioned *item, Rect previousLocation);
-    std::vector<Positioned *> intersections(Positioned *item);
+    std::vector<Positioned *> intersections(Rect location, bool evaluateAllItems);
+    
 };
 
-#endif //EOLIPILE_SPATIALHASH_H
+#endif /* SpatialHash_hpp */
