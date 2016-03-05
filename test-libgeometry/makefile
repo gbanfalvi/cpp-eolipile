@@ -23,4 +23,4 @@ $(OUTPUTFILE): test-libgeometry
 	mkdir -p $(INSTALLDIR)
 	cp -p  $(OUTPUTFILE) $(INSTALLDIR)
 	rm *.o
-	rm *.dSYM
+	rm -rf *.dSYM
