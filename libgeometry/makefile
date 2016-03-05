@@ -34,3 +34,4 @@ $(OUTPUTFILE): SpatialHash.o Rect.o Line.o Point.o Size.o
 	cp -p  $(OUTPUTFILE) $(INSTALLDIR)
 	rm *.o
 	rm *.a
+	rm *.dSYM
