@@ -20,7 +20,10 @@ animation cycle at different speeds.
 
 #include <vector>
 #include <string>
-#include "EngineSprite.h"
+#include "SDLLibs.hpp"
+
+class EngineSprite;
+class EngineDimensions;
 
 class EngineItemState {
 private:
@@ -34,8 +37,7 @@ public:
 
 	std::string * getName();
 
-	void enabledState();
-	void render(int x, int y, int w, int h, SDL_Renderer *renderer);
+	void render(EngineDimensions *dimensions, SDL_Renderer *renderer);
 };
 
 #endif

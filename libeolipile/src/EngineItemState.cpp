@@ -1,16 +1,20 @@
 
-#include "EngineItemState.h"
+#include "EngineItemState.hpp"
+
+#include "EngineSprite.hpp"
 
 EngineItemState::EngineItemState(std::string *name, int framesPerSprite, EngineSprite n_sprites, ...) {
-	this->_stateName = name;
-	this->_sprites = std::vector<EngineSprite>();
-	this->_stateFramesPerSprite = framesPerSprite;
-}
-
-EngineItemState::~EngineItemState() {
-
+	_stateName = name;
+	_sprites = std::vector<EngineSprite>();
+	_stateFramesPerSprite = framesPerSprite;
 }
 
 std::string * EngineItemState::getName() {
-	return  this->_stateName;
+	return  _stateName;
+}
+
+void EngineItemState::render(EngineDimensions *dimensions, SDL_Renderer *renderer) {
+    
+}
+EngineItemState::~EngineItemState() {
 }
