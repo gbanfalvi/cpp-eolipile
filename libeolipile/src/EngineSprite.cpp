@@ -23,48 +23,49 @@ TODO:
 
 */
 
-#include "EngineSprite.h"
+#include "EngineSprite.hpp"
+#include "EngineDimensions.hpp"
 
 #include <iostream>
 #include <string>
 
 EngineSprite::EngineSprite(std::string *filename) {
-	this->_filename = filename;
-	this->_image = IMG_Load(filename->c_str());
+	_filename = filename;
+	_image = IMG_Load(filename->c_str());
 
-	if (this->_image == NULL) {
+	if (_image == NULL) {
 		std::cout << "IMG_Load failed :" << IMG_GetError() << std::endl;
 	}
 }
 
 EngineSprite::~EngineSprite() {
-	if (this->_image != NULL) {
-		SDL_FreeSurface(this->_image);
+	if (_image != NULL) {
+		SDL_FreeSurface(_image);
 	}
 
-	if (this->_texture != NULL) {
-		SDL_DestroyTexture(this->_texture);
+	if (_texture != NULL) {
+		SDL_DestroyTexture(_texture);
 	}
 
-	delete this->_filename;
+	delete _filename;
 }
 
 int EngineSprite::getWidth() {
-	return this->_image->w;
+	return _image->w;
 }
 
 int EngineSprite::getHeight() {
-	return this->_image->h;
+	return _image->h;
 }
 
 bool EngineSprite::isLoaded() {
-	return this->_image != NULL;
+	return _image != NULL;
 }
 
 void EngineSprite::createTexture(SDL_Renderer* renderer) {
-	this->_texture = SDL_CreateTextureFromSurface(renderer, this->_image);
+	_texture = SDL_CreateTextureFromSurface(renderer, _image);
 
-	if (this->_texture == NULL) {
+	if (_texture == NULL) {
     	std::cout << "CreateTextureFromSurface failed: " << SDL_GetError() << std::endl;
     }
 }
@@ -76,6 +77,6 @@ void EngineSprite::render(int x, int y, int w, int h, SDL_Renderer* renderer) {
 	location.w = w;
 	location.h = h;
 
-	SDL_RenderCopy(renderer, this->_texture, NULL, &location);
+	SDL_RenderCopy(renderer, _texture, NULL, &location);
 }
 

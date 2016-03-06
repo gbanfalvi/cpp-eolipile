@@ -11,9 +11,9 @@ and destroys them when the sprite is deleted.
 #ifndef _INCL_ENGINE_SPRITE_H
 #define _INCL_ENGINE_SPRITE_H
 
-#include "SDLLibs.h"
 #include <string>
 
+#include "SDLLibs.hpp"
 
 class EngineSprite {
 private:
