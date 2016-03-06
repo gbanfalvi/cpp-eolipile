@@ -2,17 +2,18 @@
 //https://wiki.libsdl.org/SDL_CreateRGBSurface
 //https://wiki.libsdl.org/SDL_FillRect
 
-#include "EngineWorld.h"
+#include "EngineWorld.hpp"
+#include "EngineItem.hpp"
 
-EngineWorld::EngineWorld(int r, int g, int b):_items() {
-	this->_backgroundImage = SDL_CreateRGBSurface(0, 1, 1, 32, 0,0,0,0);
-	SDL_FillRect(this->_backgroundImage, NULL, SDL_MapRGB(this->_backgroundImage->format, r, g, b));
+EngineWorld::EngineWorld(int r, int g, int b):_items(), _worldMap(20) {
+	_backgroundImage = SDL_CreateRGBSurface(0, 1, 1, 32, 0,0,0,0);
+	SDL_FillRect(_backgroundImage, NULL, SDL_MapRGB(_backgroundImage->format, r, g, b));
 }
 
-EngineWorld::EngineWorld(std::string* backgroundImageFile):_items() {
-	this->_backgroundImage = IMG_Load(backgroundImageFile->c_str());
+EngineWorld::EngineWorld(std::string* backgroundImageFile):_items(), _worldMap(20) {
+	_backgroundImage = IMG_Load(backgroundImageFile->c_str());
 
-	if (this->_backgroundImage == NULL) {
+	if (_backgroundImage == NULL) {
 		std::cout << "IMG_Load failed :" << IMG_GetError() << std::endl;
 	}
 }
@@ -20,13 +21,13 @@ EngineWorld::EngineWorld(std::string* backgroundImageFile):_items() {
 /* When attached/detached to engine */
 
 void EngineWorld::attachedToEngineWithRenderer(SDL_Renderer* renderer) {
-	this->_renderer = renderer;
-	this->createTexturesWithEngineItems();
+	_renderer = renderer;
+	createTexturesWithEngineItems();
 }
 
 void EngineWorld::detachedFromEngine() {
-	this->_renderer = NULL;
-	this->wipeTexturesFromEngineItems();
+	_renderer = NULL;
+	wipeTexturesFromEngineItems();
 }
 
 void EngineWorld::createTexturesWithEngineItems() {
@@ -38,8 +39,12 @@ void EngineWorld::wipeTexturesFromEngineItems() {
 }
 
 void EngineWorld::addItem(EngineItem* item) {
-	this->_items.push_back(item);
-	if (this->_renderer != NULL) {
+	_items.push_back(item);
+	if (_renderer != NULL) {
 
 	}
+}
+
+void EngineWorld::itemMoved(EngineItem *item, Rect previousLocation) {
+    _worldMap.move(item, previousLocation);
 }
