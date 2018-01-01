@@ -8,7 +8,6 @@
 
 #include "Rect.hpp"
 
-
 SpaceIntersectAndDistance Rect::intersects(const Rect& other) const {
     double radiusSelf = diagonalLength() / 2;
     double radiusOther = other.diagonalLength() / 2;
@@ -113,4 +112,9 @@ SpaceIntersectAndDistance Rect::intersects(const Rect& other) const {
     } else {
         return SpaceIntersectAndDistance(false, centerDistance - (radiusSelf + radiusOther));
     }
+}
+
+std::ostream &operator<< (std::ostream &os, Rect const &rect) {
+    os << "Rect <Origin:" << rect.origin << " Size:" << rect.size << " Rotation:" << rect.rotation << ">";
+    return os;
 }

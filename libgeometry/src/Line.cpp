@@ -31,7 +31,19 @@ Line::Line(Point p1, Point p2) {
     }
 }
 
-inline double Line::inverseGradient() const {
+double Line::gradient() const {
+    return _gradient;
+}
+
+double Line::intercept() const {
+    return _intercept;
+}
+
+bool Line::isVertical() const {
+    return _lineCase == Vertical;
+}
+
+double Line::inverseGradient() const {
     if (_lineCase == Horizontal) {
         return INFINITY;
 
@@ -43,7 +55,7 @@ inline double Line::inverseGradient() const {
     }
 }
 
-inline Line Line::normalWithPoint(const Point& point) const {
+Line Line::normalWithPoint(const Point& point) const {
     if (_lineCase == Horizontal) {
         return Line(INFINITY, point.x);
 
@@ -55,7 +67,7 @@ inline Line Line::normalWithPoint(const Point& point) const {
     }
 }
 
-inline Point Line::pointProjectedOntoLine(const Point& other) const {
+Point Line::pointProjectedOntoLine(const Point& other) const {
     if (_lineCase == Vertical) {
         return Point(_intercept, other.y);
 
@@ -73,7 +85,7 @@ inline Point Line::pointProjectedOntoLine(const Point& other) const {
     }
 }
 
-inline double Line::valueOnLine(const Point& point) const {
+double Line::valueOnLine(const Point& point) const {
     Point projected = pointProjectedOntoLine(point);
     if (_lineCase == Vertical) {
         return projected.y;
@@ -81,3 +93,12 @@ inline double Line::valueOnLine(const Point& point) const {
         return projected.x;
     }
 }
+
+std::ostream &operator<< (std::ostream &os, Line const &line) {
+    os << "Line <Gradient:" << line.gradient() << " Intercept:" << line.intercept() << ">";
+    return os;
+}
+
+
+
+
