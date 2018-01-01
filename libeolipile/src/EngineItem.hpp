@@ -31,7 +31,7 @@ deals with them:
 #include <cmath>
 
 #include "SDLLibs.hpp"
-#include "Geometry.hpp"
+#include "../../libgeometry/include/Geometry.hpp"
 #include "EngineDimensions.hpp"
 
 class EngineItemState;

@@ -16,7 +16,7 @@ get it all working is:
 #include <iostream>
 
 #include "SDLLibs.hpp"
-#include "Geometry.hpp"
+#include "../../libgeometry/include/Geometry.hpp"
 
 class EngineItem;
 

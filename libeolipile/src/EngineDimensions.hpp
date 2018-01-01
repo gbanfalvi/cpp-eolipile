@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 #include "SDLLibs.hpp"
-#include "Geometry.hpp"
+#include "../../libgeometry/include/Geometry.hpp"
 
 typedef SDL_RendererFlip ItemFlip;
 
