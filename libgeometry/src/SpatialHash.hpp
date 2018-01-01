@@ -16,7 +16,7 @@
 
 #include "Point.hpp"
 
-class Rect;
+struct Rect;
 
 class Positioned {
 public:
