@@ -26,3 +26,15 @@
 *.exe
 *.out
 *.app
+
+# IJ Idea
+.idea
+
+# IJ CLion / cmake
+cmake-build-debug
+
+
+# Build folder
+build
+
+
