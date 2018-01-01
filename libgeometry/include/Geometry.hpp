@@ -13,11 +13,11 @@
 /* The classes below are exported */
 #pragma GCC visibility push(default)
 
-#include "Point.hpp"
-#include "Size.hpp"
-#include "Line.hpp"
-#include "Rect.hpp"
-#include "SpatialHash.hpp"
+#include "../src/Point.hpp"
+#include "../src/Size.hpp"
+#include "../src/Line.hpp"
+#include "../src/Rect.hpp"
+#include "../src/SpatialHash.hpp"
 
 #pragma GCC visibility pop
 #endif
