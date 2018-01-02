@@ -1,6 +1,6 @@
 /**
  * Just polls basic input in the engine loop, nothing more, really. It was part of the engine but I
- * moved it out when I realized that the code could be encapsulat
+ * moved it out when I realized that the code could be encapsulated
  */
 
 #ifndef EngineInputHandler_hpp

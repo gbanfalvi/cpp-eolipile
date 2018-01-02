@@ -1,10 +1,11 @@
 
+#include <string>
 #include "Test.h"
-#include "Engine.h"
-#include "EngineWorld.h"
+#include "GameEngine.hpp"
+#include "EngineWorld.hpp"
 
 int main() {
-	Engine engineTest = Engine(640, 480, 60, new std::string("Engine test"));
+	GameEngine engineTest = GameEngine(640, 480, 60, new std::string("Engine test"));
 
 	engineTest.loadWindow();
 	engineTest.startLoop();

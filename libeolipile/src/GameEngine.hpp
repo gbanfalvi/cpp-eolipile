@@ -60,10 +60,11 @@ private:
     
 public:
     GameEngine(int w, int h, int fps, std::string *name) :
+        _windowName(name),
         _windowWidth(w),
         _windowHeight(h),
-        _frameLength(1000/fps),
-        _windowName(name){
+        _frameLength(1000/fps)
+        {
             _inputHandler = new EngineInputHandler(this);
         }; //Done
     

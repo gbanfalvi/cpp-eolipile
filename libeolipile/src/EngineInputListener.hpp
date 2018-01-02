@@ -3,7 +3,7 @@
 #ifndef _INCL_ENGINE_INPUT_H
 #define _INCL_ENGINE_INPUT_H
 
-#import <iostream>
+#include <iostream>
 #include "SDLLibs.hpp"
 
 /**
