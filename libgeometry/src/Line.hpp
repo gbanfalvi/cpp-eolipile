@@ -15,6 +15,14 @@
 struct Point;
 
 /// Line on a plane (with no specific start or end)
+/// Line is stored as a gradient and an intercept
+/// The gradient is the line's inclination, while the intercept is where
+/// the line crosses the Y axis.
+///
+/// Note: If a line is completely vertical, its gradient is INFINITY and its
+/// intercept is where it crosses the X-axis. Mathematically, the gradient
+/// for a vertical line is undefined, so NAN might be more appropriate, butesults.
+/// NAN might be more ideal for erroneous r
 struct Line {
 private:
     enum LineCase { Regular, Horizontal, Vertical};
@@ -25,7 +33,8 @@ private:
 
 public:
 
-    /// Line created from a gradient and a Y intercept
+    /// Line created from a gradient and a Y intercept. If the gradient is
+    /// INFINITY, the intercept refers to the X intercept
     /// \param gradient
     /// \param intercept
     Line(double gradient, double intercept);
